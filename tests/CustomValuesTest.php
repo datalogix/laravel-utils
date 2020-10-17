@@ -16,7 +16,7 @@ class CustomValuesTest extends TestCase
     protected function getPackageProviders($app)
     {
         return [
-            UtilsServiceProvider::class
+            UtilsServiceProvider::class,
         ];
     }
 
