@@ -1,0 +1,61 @@
+{
+    "name": "datalogix/laravel-utils",
+    "description": "The purpose of this package is to configure simple things which we usually forget about in our projects.",
+    "keywords": [
+        "laravel",
+        "utils",
+        "locale",
+        "schema",
+        "https",
+        "paginator"
+    ],
+    "homepage": "https://github.com/datalogix/laravel-utils",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Ricardo Gobbo de Souza",
+            "email": "ricardogobbosouza@yahoo.com.br"
+        }
+    ],
+    "require": {
+        "php": "^7.2.5",
+        "illuminate/support": "^7.0|^8.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^5.5|^6.0",
+        "phpunit/phpunit": "^8.5|^9.0",
+        "spatie/phpunit-watcher": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Datalogix\\Utils\\": "src/"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Datalogix\\Utils\\Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "watch": "vendor/bin/phpunit-watcher watch"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Datalogix\\Utils\\UtilsServiceProvider"
+            ]
+        }
+    }
+}
