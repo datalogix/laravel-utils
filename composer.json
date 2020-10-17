@@ -1,6 +1,6 @@
 {
     "name": "datalogix/laravel-utils",
-    "description": "The purpose of this package is to configure simple things which we usually forget about in our projects.",
+    "description": "Laravel Utils is a package that configure simple things, which we usually forget about in our projects.",
     "keywords": [
         "laravel",
         "utils",

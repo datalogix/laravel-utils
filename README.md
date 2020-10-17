@@ -7,7 +7,7 @@
 [![codecov](https://codecov.io/gh/datalogix/laravel-utils/branch/master/graph/badge.svg)](https://codecov.io/gh/datalogix/laravel-utils)
 [![License](https://poser.pugx.org/datalogix/laravel-utils/license)](https://packagist.org/packages/datalogix/laravel-utils)
 
-> The purpose of this package is to configure simple things which we usually forget about in our projects.
+> Laravel Utils is a package that configure simple things, which we usually forget about in our projects.
 
 ## Features
 
@@ -35,7 +35,7 @@ then run ```composer update```
 
 ## Translations
 
-This package contains Portuguese translations (pt_BR), use the command below to publish:
+To publish Portuguese translations (pt_BR), use the command below:
 
 ```bash
 php artisan vendor:publish --provider="Datalogix\Utils\UtilsServiceProvider" --tag="lang"
