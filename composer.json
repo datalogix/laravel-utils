@@ -40,22 +40,20 @@
             "Datalogix\\Utils\\Tests\\": "tests/"
         }
     },
-    "minimum-stability": "dev",
-    "prefer-stable": true,
-    "scripts": {
-        "test": "vendor/bin/phpunit",
-        "watch": "vendor/bin/phpunit-watcher watch"
-    },
-    "config": {
-        "optimize-autoloader": true,
-        "preferred-install": "dist",
-        "sort-packages": true
-    },
     "extra": {
         "laravel": {
             "providers": [
                 "Datalogix\\Utils\\UtilsServiceProvider"
             ]
         }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "watch": "vendor/bin/phpunit-watcher watch"
     }
 }
