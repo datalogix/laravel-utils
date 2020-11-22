@@ -1,10 +1,10 @@
 <?php
 
-namespace Datalogix\LaravelUtils\Tests;
+namespace Datalogix\Utils\Tests;
 
 use Carbon\Carbon;
-use Datalogix\LaravelUtils\Http\Middleware\HttpsProtocolMiddleware;
-use Datalogix\LaravelUtils\LaravelUtilsServiceProvider;
+use Datalogix\Utils\Http\Middleware\HttpsProtocolMiddleware;
+use Datalogix\Utils\UtilsServiceProvider;
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Database\Schema\Builder;
 use Illuminate\Pagination\Paginator;
@@ -16,7 +16,7 @@ class DefaultValuesTest extends TestCase
     protected function getPackageProviders($app)
     {
         return [
-            LaravelUtilsServiceProvider::class,
+            UtilsServiceProvider::class,
         ];
     }
 

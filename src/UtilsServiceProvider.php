@@ -1,16 +1,16 @@
 <?php
 
-namespace Datalogix\LaravelUtils;
+namespace Datalogix\Utils;
 
 use Carbon\Carbon;
-use Datalogix\LaravelUtils\Http\Middleware\HttpsProtocolMiddleware;
+use Datalogix\Utils\Http\Middleware\HttpsProtocolMiddleware;
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
 
-class LaravelUtilsServiceProvider extends ServiceProvider
+class UtilsServiceProvider extends ServiceProvider
 {
     /**
      * Register any application services.
