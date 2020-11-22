@@ -20,7 +20,8 @@
     ],
     "require": {
         "php": "^7.2.5|^8.0",
-        "illuminate/support": "^7.0|^8.0"
+        "illuminate/support": "^7.0|^8.0",
+        "signifly/laravel-builder-macros": "^1.4"
     },
     "require-dev": {
         "orchestra/testbench": "^5.0|^6.0",
@@ -29,7 +30,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Datalogix\\LaravelUtils\\": "src/"
+            "Datalogix\\Utils\\": "src/"
         },
         "files": [
             "src/helpers.php"
@@ -37,13 +38,13 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Datalogix\\LaravelUtils\\Tests\\": "tests/"
+            "Datalogix\\Utils\\Tests\\": "tests/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Datalogix\\LaravelUtils\\LaravelUtilsServiceProvider"
+                "Datalogix\\Utils\\UtilsServiceProvider"
             ]
         }
     },
