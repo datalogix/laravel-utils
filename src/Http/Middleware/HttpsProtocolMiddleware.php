@@ -1,6 +1,6 @@
 <?php
 
-namespace Datalogix\Utils\Http\Middleware;
+namespace Datalogix\LaravelUtils\Http\Middleware;
 
 use Closure;
 
