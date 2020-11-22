@@ -11,6 +11,7 @@
 
 ## Features
 
+- Builder macros ([signifly/laravel-builder-macros](https://github.com/signifly/laravel-builder-macros))
 - Translations (pt_BR)
 - Set locale (LC_ALL, Carbon, App)
 - Set default string length for schema
