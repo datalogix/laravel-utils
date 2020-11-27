@@ -72,6 +72,7 @@ return [
 
     'paginator' => [
         'defaultView' => 'pagination::tailwind',
+        'defaultSimpleView' => 'pagination::simple-tailwind',
     ],
 ];
 ```
