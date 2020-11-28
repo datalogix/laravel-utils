@@ -28,7 +28,7 @@ composer require datalogix/laravel-utils
 or add this to require section in your composer.json file:
 
 ```bash
-"datalogix/laravel-utils": "~2.1"
+"datalogix/laravel-utils": "~1.0"
 ```
 
 then run ```composer update```
