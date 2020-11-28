@@ -4,7 +4,7 @@
 [![Total Downloads](https://poser.pugx.org/datalogix/laravel-utils/downloads)](https://packagist.org/packages/datalogix/laravel-utils)
 [![tests](https://github.com/datalogix/laravel-utils/workflows/tests/badge.svg)](https://github.com/datalogix/laravel-utils/actions)
 [![StyleCI](https://github.styleci.io/repos/304879300/shield?style=flat)](https://github.styleci.io/repos/304879300)
-[![codecov](https://codecov.io/gh/datalogix/laravel-utils/branch/master/graph/badge.svg)](https://codecov.io/gh/datalogix/laravel-utils)
+[![codecov](https://codecov.io/gh/datalogix/laravel-utils/branch/main/graph/badge.svg)](https://codecov.io/gh/datalogix/laravel-utils)
 [![License](https://poser.pugx.org/datalogix/laravel-utils/license)](https://packagist.org/packages/datalogix/laravel-utils)
 
 > Laravel Utils is a package that configure simple things, which we usually forget about in our projects.
@@ -19,19 +19,13 @@
 
 ## Installation
 
-Run the following command from you terminal:
+You can install the package via composer:
 
 ```bash
 composer require datalogix/laravel-utils
 ```
 
-or add this to require section in your composer.json file:
-
-```bash
-"datalogix/laravel-utils": "~1.0"
-```
-
-then run ```composer update```
+The package will automatically register itself.
 
 ## Translations
 
