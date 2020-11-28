@@ -11,7 +11,6 @@
 
 ## Features
 
-- Builder macros ([signifly/laravel-builder-macros](https://github.com/signifly/laravel-builder-macros))
 - Translations (pt_BR)
 - Set locale (LC_ALL, Carbon, App)
 - Set default string length for schema
@@ -29,7 +28,7 @@ composer require datalogix/laravel-utils
 or add this to require section in your composer.json file:
 
 ```bash
-"datalogix/laravel-utils": "~2.0"
+"datalogix/laravel-utils": "~2.1"
 ```
 
 then run ```composer update```
