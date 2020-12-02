@@ -70,7 +70,7 @@ class UtilsServiceProvider extends ServiceProvider
         if ($category = config('utils.locale.category')) {
             setlocale($category, $this->app->getlocale());
 
-            $this->app->events->listen('Illuminate\Foundation\Events\LocaleUpdated', function() use($category) {
+            $this->app->events->listen('Illuminate\Foundation\Events\LocaleUpdated', function () use ($category) {
                 setlocale($category, $this->app->getlocale());
             });
         }
