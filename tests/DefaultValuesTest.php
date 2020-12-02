@@ -3,24 +3,15 @@
 namespace Datalogix\Utils\Tests;
 
 use Datalogix\Utils\Http\Middleware\HttpsProtocolMiddleware;
-use Datalogix\Utils\UtilsServiceProvider;
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Schema\Builder;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\URL;
-use Orchestra\Testbench\TestCase;
 
 class DefaultValuesTest extends TestCase
 {
-    protected function getPackageProviders($app)
-    {
-        return [
-            UtilsServiceProvider::class,
-        ];
-    }
-
     public function testModelUnguarded()
     {
         $this->assertTrue(Model::isUnguarded());

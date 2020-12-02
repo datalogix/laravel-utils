@@ -4,6 +4,8 @@
     "keywords": [
         "laravel",
         "utils",
+        "translations",
+        "model",
         "locale",
         "schema",
         "https",
@@ -26,7 +28,7 @@
         "illuminate/support": "^7.0|^8.0"
     },
     "require-dev": {
-        "orchestra/testbench": "^5.0|^6.0",
+        "graham-campbell/testbench": "^5.0",
         "phpunit/phpunit": "^8.0|^9.0",
         "spatie/phpunit-watcher": "^1.0"
     },
