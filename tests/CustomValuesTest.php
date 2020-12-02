@@ -54,9 +54,9 @@ class CustomValuesTest extends TestCase
 
     public function testLocale()
     {
-        $this->app->setLocale('pt_BR');
+        $this->app->setLocale('en');
 
-        $this->assertEquals('01 Janeiro 2020', Carbon::parse('2020-01-01')->formatLocalized('%d %B %Y'));
+        $this->assertEquals('01 January 2020', Carbon::parse('2020-01-01')->formatLocalized('%d %B %Y'));
     }
 
     public function testSchemaDefaultStringLength()
