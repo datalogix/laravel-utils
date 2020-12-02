@@ -11,11 +11,12 @@
 
 ## Features
 
-- Translations (pt_BR)
-- Set locale (LC_ALL, Carbon, App)
-- Set default string length for schema
-- Middleware to force https
-- Set default view for paginator
+- Translations to `pt_BR`
+- Model unguarded `enabled`
+- Set locale `LC_ALL` when updated
+- Set default string length for schema to `150`
+- Middleware to force https on `production environment`
+- Set default view for paginator to `tailwind`
 
 ## Installation
 
@@ -52,8 +53,13 @@ return [
      | Laravel Utils
      |--------------------------------------------------------------------------
      */
+    'model' => [
+        'unguard' => true,
+    ],
 
-    'locale' => config('app.locale', 'pt_BR'),
+    'locale' => [
+        'category' => LC_ALL,
+    ],
 
     'schema' => [
         'defaultStringLength' => 150,

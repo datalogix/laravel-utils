@@ -2,12 +2,13 @@
 
 namespace Datalogix\Utils\Tests;
 
-use Carbon\Carbon;
 use Datalogix\Utils\Http\Middleware\HttpsProtocolMiddleware;
 use Datalogix\Utils\UtilsServiceProvider;
 use Illuminate\Contracts\Http\Kernel;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Schema\Builder;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\URL;
 use Orchestra\Testbench\TestCase;
 
@@ -20,10 +21,18 @@ class DefaultValuesTest extends TestCase
         ];
     }
 
-    public function testLocale()
+    public function testModelUnguarded()
     {
-        $this->assertEquals('en', $this->app->getLocale());
-        $this->assertEquals('en', Carbon::getLocale());
+        $this->assertTrue(Model::isUnguarded());
+    }
+
+    public function testEventsLocaleUpdated()
+    {
+        Event::fake();
+
+        $this->app->setLocale('en');
+
+        Event::assertDispatched('Illuminate\Foundation\Events\LocaleUpdated');
     }
 
     public function testSchemaDefaultStringLength()

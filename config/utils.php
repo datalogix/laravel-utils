@@ -7,7 +7,13 @@
 */
 
 return [
-    'locale' => config('app.locale', 'pt_BR'),
+    'model' => [
+        'unguard' => true,
+    ],
+
+    'locale' => [
+        'category' => LC_ALL,
+    ],
 
     'schema' => [
         'defaultStringLength' => 150,
