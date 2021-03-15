@@ -8,7 +8,7 @@
 
 return [
     'model' => [
-        'unguard' => true,
+        'unguard' => false,
     ],
 
     'locale' => [

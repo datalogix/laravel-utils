@@ -14,7 +14,7 @@ class DefaultValuesTest extends TestCase
 {
     public function testModelUnguarded()
     {
-        $this->assertTrue(Model::isUnguarded());
+        $this->assertFalse(Model::isUnguarded());
     }
 
     public function testEventsLocaleUpdated()

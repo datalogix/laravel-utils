@@ -16,7 +16,7 @@ class CustomValuesTest extends TestCase
     {
         $app->config->set('utils', [
             'model' => [
-                'unguard' => false,
+                'unguard' => true,
             ],
 
             'locale' => [
@@ -40,7 +40,7 @@ class CustomValuesTest extends TestCase
 
     public function testModelUnguarded()
     {
-        $this->assertFalse(Model::isUnguarded());
+        $this->assertTrue(Model::isUnguarded());
     }
 
     public function testLocale()
