@@ -12,7 +12,7 @@
 ## Features
 
 - Translations to `pt_BR`
-- Model unguarded `enabled`
+- Model unguarded `disabled`
 - Set locale `LC_ALL` when updated
 - Set default string length for schema to `150`
 - Middleware to force https on `production environment`
@@ -54,7 +54,7 @@ return [
      |--------------------------------------------------------------------------
      */
     'model' => [
-        'unguard' => true,
+        'unguard' => false,
     ],
 
     'locale' => [
