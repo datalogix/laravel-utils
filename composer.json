@@ -50,7 +50,7 @@
             "@php artisan vendor:publish --provider=Datalogix\\Utils\\UtilsServiceProvider --tag=lang --ansi"
         ],
         "test": "vendor/bin/phpunit",
-        "watch": "vendor/bin/phpunit-watcher watch",
+        "watch": "vendor/bin/phpunit-watcher watch"
     },
     "extra": {
         "laravel": {
