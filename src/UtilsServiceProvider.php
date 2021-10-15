@@ -33,7 +33,7 @@ class UtilsServiceProvider extends ServiceProvider
         $this->bootModel();
         $this->bootLocale();
         $this->bootSchema();
-        $this->bootMiddleware();
+        $this->bootHttps();
         $this->bootPaginator();
     }
 
@@ -89,16 +89,18 @@ class UtilsServiceProvider extends ServiceProvider
     }
 
     /**
-     * Bootstrap middleware.
+     * Bootstrap https.
      *
      * @return void
      */
-    private function bootMiddleware()
+    private function bootHttps()
     {
-        if (config('utils.middleware.forceHttps')) {
+        if (config('utils.https.middleware')) {
             $kernel = $this->app->make(Kernel::class);
             $kernel->prependMiddleware(HttpsProtocolMiddleware::class);
+        }
 
+        if (config('utils.https.forceScheme')) {
             URL::forceScheme('https');
         }
     }

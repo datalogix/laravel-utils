@@ -27,8 +27,9 @@ class CustomValuesTest extends TestCase
                 'defaultStringLength' => null,
             ],
 
-            'middleware' => [
-                'forceHttps' => true,
+            'https' => [
+                'forceScheme' => true,
+                'middleware' => true,
             ],
 
             'paginator' => [

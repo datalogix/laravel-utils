@@ -19,8 +19,9 @@ return [
         'defaultStringLength' => 150,
     ],
 
-    'middleware' => [
-        'forceHttps' => app()->environment('production'),
+    'https' => [
+        'forceScheme' => app()->environment('production'),
+        'middleware' => app()->environment('production'),
     ],
 
     'paginator' => [
