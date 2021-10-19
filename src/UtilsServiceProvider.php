@@ -2,6 +2,7 @@
 
 namespace Datalogix\Utils;
 
+use Datalogix\Translation\TranslationServiceProvider;
 use Datalogix\Utils\Http\Middleware\HttpsProtocolMiddleware;
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Database\Eloquent\Model;
@@ -19,6 +20,7 @@ class UtilsServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        $this->app->register(TranslationServiceProvider::class, true);
         $this->mergeConfigFrom(__DIR__.'/../config/utils.php', 'utils');
     }
 
