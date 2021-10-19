@@ -133,7 +133,6 @@ return [
     | https://respect-validation.readthedocs.io/en/latest/list-of-rules/
     |
     */
-
     'all_of' => 'O campo :attribute deve passar em todas as validações.',
     'alnum' => 'O campo :attribute deve conter apenas letras e números.',
     //'alpha' => 'O campo :attribute deve conter apenas letras.',
@@ -285,6 +284,32 @@ return [
     'xdigit' => 'O campo :attribute deve ser um número hexadecimal.',
     'yes' => 'O campo :attribute deve ser válido.',
     'zend' => 'O campo :attribute deve ser válido.',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Aliases
+    |--------------------------------------------------------------------------
+    |
+    | https://github.com/datalogix/laravel-validation/blob/main/src/RuleFactory.php
+    |
+    */
+    'arr' => 'O campo :attribute deve ser uma matriz.',
+    'bool' => 'O campo :attribute deve ser verdadeiro ou falso.',
+    'cntrl' => 'O campo :attribute deve ser caracteres de controle.',
+    'false' => 'O campo :attribute deve ser falso.',
+    'file_exists' => 'O campo :attribute não existe.',
+    'float' => 'O campo :attribute deve ser flutuante.',
+    'int' => 'O campo :attribute deve ser inteiro.',
+    'iterable' => 'O campo :attribute deve ser iterável',
+    'iterable_val' => 'O campo :attribute deve ser iterável',
+    'minimum_age' => 'O campo :attribute deve ter uma idade mínima de :age.',
+    'null_value' => 'O campo :attribute deve ser nulo.',
+    //'numeric' => 'O campo :attribute deve ser um número.',
+    'object' => 'O campo :attribute deve ser um objeto.',
+    'object_val' => 'O campo :attribute deve ser um objeto.',
+    'prnt' => 'O campo :attribute deve ser imprimível.',
+    //'string' => 'O campo :attribute deve ser uma string.',
+    'true' => 'O campo :attribute deve ser verdadeiro.',
 
     /*
     |--------------------------------------------------------------------------
