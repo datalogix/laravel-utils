@@ -12,7 +12,6 @@ abstract class TestCase extends AbstractPackageTestCase
      * Get the required service providers.
      *
      * @param  \Illuminate\Contracts\Foundation\Application  $app
-     *
      * @return string[]
      */
     protected function getRequiredServiceProviders($app)
