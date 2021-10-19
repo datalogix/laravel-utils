@@ -48,6 +48,10 @@ class UtilsServiceProvider extends ServiceProvider
             $this->publishes([__DIR__.'/../config/utils.php' => config_path('utils.php')], 'config');
             $this->publishes([__DIR__.'/../resources/lang' => resource_path('lang')], 'lang');
         }
+
+        $this->callAfterResolving('translator', function ($translator) {
+            $translator->addPath(__DIR__.'/../resources/lang');
+        });
     }
 
     /**

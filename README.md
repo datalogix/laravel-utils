@@ -17,6 +17,8 @@
 - Set default string length for schema to `150`
 - Middleware to force https on `production environment`
 - Set default view for paginator to `tailwind`
+- Register translations automatically using [datalogix/laravel-translation](https://github.com/datalogix/laravel-translation).
+- Inject [Respect Validation](https://respect-validation.readthedocs.io) using [datalogix/laravel-validation](https://github.com/datalogix/laravel-validation).
 
 ## Installation
 
