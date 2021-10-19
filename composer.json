@@ -23,6 +23,7 @@
     "require": {
         "php": "^7.3|^8.0",
         "datalogix/laravel-translation": "^1.0",
+        "datalogix/laravel-validation": "^1.1",
         "illuminate/contracts": "^7.0|^8.0",
         "illuminate/database": "^7.0|^8.0",
         "illuminate/pagination": "^7.0|^8.0",
