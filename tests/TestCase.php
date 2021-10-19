@@ -11,7 +11,7 @@ abstract class TestCase extends AbstractPackageTestCase
     /**
      * Get the required service providers.
      *
-     * @param \Illuminate\Contracts\Foundation\Application $app
+     * @param  \Illuminate\Contracts\Foundation\Application  $app
      *
      * @return string[]
      */
