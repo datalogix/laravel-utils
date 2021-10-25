@@ -8,24 +8,24 @@
 
 return [
     'model' => [
-        'unguard' => false,
+        'unguard' => env('UTILS_MODEL_UNGUARD', false),
     ],
 
     'locale' => [
-        'category' => LC_ALL,
+        'category' => env('UTILS_LOCALE_CATEGORY', LC_ALL),
     ],
 
     'schema' => [
-        'defaultStringLength' => 150,
+        'defaultStringLength' => env('UTILS_SCHEMA_STRING_LENGTH', 150),
     ],
 
     'https' => [
-        'forceScheme' => app()->environment('production'),
-        'middleware' => app()->environment('production'),
+        'forceScheme' => env('UTILS_HTTPS_FORCE_SCHEME', app()->environment('production')),
+        'middleware' => env('UTILS_HTTPS_MIDDLEWARE', app()->environment('production')),
     ],
 
     'paginator' => [
-        'defaultView' => 'pagination::tailwind',
-        'defaultSimpleView' => 'pagination::simple-tailwind',
+        'defaultView' => env('UTILS_PAGINATOR_VIEW', 'pagination::tailwind'),
+        'defaultSimpleView' => env('UTILS_PAGINATOR_SIMPLE_VIEW', 'pagination::simple-tailwind'),
     ],
 ];
