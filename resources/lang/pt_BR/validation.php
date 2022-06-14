@@ -905,6 +905,8 @@ return [
         'save_id' => 'Salvar',
         'Saving' => 'Salvando',
         'saving' => 'Salvando',
+        'Save and view' => 'Salvar e visualizar',
+        'save and view' => 'Salvar e visualizar',
         'School' => 'Escola',
         'school' => 'Escola',
         'school_id' => 'Escola',
