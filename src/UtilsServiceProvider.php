@@ -48,11 +48,11 @@ class UtilsServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->publishes([__DIR__.'/../config/utils.php' => config_path('utils.php')], 'config');
-            $this->publishes([__DIR__.'/../resources/lang' => resource_path('lang')], 'lang');
+            $this->publishes([__DIR__.'/../lang' => function_exists('lang_path') ? lang_path() : resource_path('lang')], 'lang');
         }
 
         $this->callAfterResolving('translator', function ($translator) {
-            $translator->addPath(__DIR__.'/../resources/lang');
+            $translator->addPath(__DIR__.'/../lang');
         });
     }
 
