@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\URL;
 
 class CustomValuesTest extends TestCase
 {
-    protected function getEnvironmentSetUp($app)
+    protected function getEnvironmentSetUp($app): void
     {
         $app->config->set('utils', [
             'model' => [
