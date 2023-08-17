@@ -31,6 +31,7 @@
     },
     "require-dev": {
         "graham-campbell/testbench": "^6.0",
+        "laravel/pint": "^1.11",
         "phpunit/phpunit": "^9.5|^10.0",
         "spatie/phpunit-watcher": "^1.23"
     },
@@ -48,6 +49,7 @@
         }
     },
     "scripts": {
+        "pint": "vendor/bin/pint",
         "test": "vendor/bin/phpunit",
         "watch": "vendor/bin/phpunit-watcher watch"
     },
