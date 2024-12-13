@@ -40,12 +40,12 @@ class CustomValuesTest extends TestCase
         ]);
     }
 
-    public function testModelUnguarded()
+    public function test_model_unguarded()
     {
         $this->assertTrue(Model::isUnguarded());
     }
 
-    public function testLocale()
+    public function test_locale()
     {
         $this->app->setLocale('en');
         $this->assertEquals('en', Carbon::getLocale());
@@ -56,19 +56,19 @@ class CustomValuesTest extends TestCase
         $this->assertEquals('janeiro', Str::lower(Carbon::parse('2020-01-01')->getTranslatedMonthName()));
     }
 
-    public function testSchemaDefaultStringLength()
+    public function test_schema_default_string_length()
     {
         $this->assertEquals(255, Builder::$defaultStringLength);
     }
 
-    public function testHttpsEnabled()
+    public function test_https_enabled()
     {
         $kernel = $this->app->make(Kernel::class);
         $this->assertTrue($kernel->hasMiddleware(HttpsProtocolMiddleware::class));
         $this->assertEquals('https://localhost', Url::to('/'));
     }
 
-    public function testPaginatorDefaultView()
+    public function test_paginator_default_view()
     {
         $this->assertEquals('paginator-defaultView', Paginator::$defaultView);
         $this->assertEquals('paginator-defaultSimpleView', Paginator::$defaultSimpleView);
