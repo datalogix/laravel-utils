@@ -8,6 +8,7 @@
 
 return [
     'model' => [
+        'strict' => env('UTILS_MODEL_STRICT', ! app()->environment('production')),
         'unguard' => env('UTILS_MODEL_UNGUARD', false),
     ],
 
