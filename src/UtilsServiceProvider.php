@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\Vite;
 use Illuminate\Support\ServiceProvider;
 
 class UtilsServiceProvider extends ServiceProvider
@@ -37,6 +38,7 @@ class UtilsServiceProvider extends ServiceProvider
         $this->bootSchema();
         $this->bootHttps();
         $this->bootPaginator();
+        $this->bootVite();
     }
 
     /**
@@ -124,6 +126,18 @@ class UtilsServiceProvider extends ServiceProvider
 
         if ($paginatorDefaultSimpleView = config('utils.paginator.defaultSimpleView')) {
             Paginator::defaultSimpleView($paginatorDefaultSimpleView);
+        }
+    }
+
+    /**
+     * Bootstrap vite.
+     *
+     * @return void
+     */
+    private function bootVite()
+    {
+        if (class_exists(Vite::class) && method_exists(Vite::getFacadeRoot(), 'usePrefetchStrategy')) {
+            Vite::usePrefetchStrategy(config('utils.vite.strategy'));
         }
     }
 }
