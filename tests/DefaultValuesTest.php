@@ -21,6 +21,8 @@ class DefaultValuesTest extends TestCase
     {
         if (method_exists(Model::class, 'shouldBeStrict')) {
             $this->assertTrue(Model::preventsLazyLoading());
+        } else {
+            $this->markTestSkipped();
         }
     }
 
