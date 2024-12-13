@@ -44,6 +44,10 @@ class CustomValuesTest extends TestCase
     public function test_model_unguarded()
     {
         $this->assertTrue(Model::isUnguarded());
+    }
+
+    public function test_model_strict()
+    {
         $this->assertFalse(Model::preventsLazyLoading());
     }
 
