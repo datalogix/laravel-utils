@@ -17,6 +17,15 @@ class DefaultValuesTest extends TestCase
         $this->assertFalse(Model::isUnguarded());
     }
 
+    public function test_model_strict()
+    {
+        if (method_exists(Model::class, 'shouldBeStrict')) {
+            $this->assertTrue(Model::preventsLazyLoading());
+        } else {
+            $this->markTestSkipped();
+        }
+    }
+
     public function test_events_locale_updated()
     {
         Event::fake();
