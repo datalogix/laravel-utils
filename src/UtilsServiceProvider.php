@@ -63,7 +63,10 @@ class UtilsServiceProvider extends ServiceProvider
      */
     private function bootModel()
     {
-        Model::shouldBeStrict(config('utils.model.strict'));
+        if (method_exists(Model::class, 'shouldBeStrict')) {
+            Model::shouldBeStrict(config('utils.model.strict'));
+        }
+
         Model::unguard(config('utils.model.unguard'));
     }
 
