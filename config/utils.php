@@ -28,4 +28,8 @@ return [
         'defaultView' => env('UTILS_PAGINATOR_VIEW', 'pagination::tailwind'),
         'defaultSimpleView' => env('UTILS_PAGINATOR_SIMPLE_VIEW', 'pagination::simple-tailwind'),
     ],
+
+    'vite' => [
+        'strategy' => env('UTILS_VITE_STRATEGY', 'aggressive'),
+    ],
 ];
