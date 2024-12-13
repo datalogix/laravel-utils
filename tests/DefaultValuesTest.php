@@ -15,7 +15,10 @@ class DefaultValuesTest extends TestCase
     public function test_model_unguarded()
     {
         $this->assertFalse(Model::isUnguarded());
-        $this->assertTrue(Model::preventsLazyLoading());
+
+        if (method_exists(Model::class, 'preventsLazyLoading')) {
+            $this->assertTrue(Model::preventsLazyLoading());
+        }
     }
 
     public function test_events_locale_updated()
