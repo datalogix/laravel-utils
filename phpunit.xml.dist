@@ -9,16 +9,18 @@
             <directory suffix="Test.php">./tests</directory>
         </testsuite>
     </testsuites>
-    <coverage processUncoveredFiles="true">
+    <coverage>
+        <report>
+            <clover outputFile="clover.xml"/>
+            <text outputFile="php://stdout"/>
+        </report>
+    </coverage>
+    <source>
         <include>
             <directory suffix=".php">./src</directory>
         </include>
         <exclude>
             <directory>./src/Http/Middleware</directory>
         </exclude>
-        <report>
-            <clover outputFile="clover.xml"/>
-            <text outputFile="php://stdout"/>
-        </report>
-    </coverage>
+    </source>
 </phpunit>
