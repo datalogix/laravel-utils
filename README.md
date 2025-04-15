@@ -7,18 +7,7 @@
 [![codecov](https://codecov.io/gh/datalogix/laravel-utils/branch/main/graph/badge.svg)](https://codecov.io/gh/datalogix/laravel-utils)
 [![License](https://poser.pugx.org/datalogix/laravel-utils/license)](https://packagist.org/packages/datalogix/laravel-utils)
 
-> Laravel Utils is a package that configure simple things, which we usually forget about in our projects.
-
-## Features
-
-- Translations `EN` and `pt_BR`
-- Model unguarded `disabled`
-- Set locale `LC_ALL` when updated
-- Set default string length for schema to `150`
-- Middleware to force https on `production environment`
-- Set default view for paginator to `tailwind`
-- Register translations automatically using [datalogix/laravel-translation](https://github.com/datalogix/laravel-translation).
-- Inject [Respect Validation](https://respect-validation.readthedocs.io) using [datalogix/laravel-validation](https://github.com/datalogix/laravel-validation).
+> A Laravel package that provides a set of useful utilities and service providers to enhance your application.
 
 ## Installation
 
@@ -30,53 +19,29 @@ composer require datalogix/laravel-utils
 
 The package will automatically register itself.
 
+## ✅ Features
+
+These features work out of the box—no additional configuration required:
+
+-   🌍 **Multi-language Support**
+    Includes built-in translations for English (`en`) and Brazilian Portuguese (`pt_BR`). Files are auto-loaded and can be published for customization.
+
+-   ✔️ **Respect Validation Integration**
+    Automatically integrates [Respect Validation](https://respect-validation.readthedocs.io) via [datalogix/laravel-validation](https://github.com/datalogix/laravel-validation), with zero setup required.
+
+-   🧠 **Enhanced Query Builder**
+    Adds useful, reusable macros to Laravel's query builder for cleaner and more expressive queries — powered by [datalogix/laravel-builder-macros](https://github.com/datalogix/laravel-builder-macros).
+
+-   🧩 **Sensible Defaults for Laravel**
+    Applies opinionated, production-ready defaults to improve performance, security, and testability — powered by [datalogix/laravel-sensible](https://github.com/datalogix/laravel-sensible).
+
+-   🛠️ **Console Support**
+    Translation files can be published using Artisan when running in the console environment.
+
 ## Translations
 
-To publish Portuguese translations (pt_BR), use the command below:
+To publish the Portuguese (pt_BR) language files, run:
 
 ```bash
 php artisan vendor:publish --provider="Datalogix\Utils\UtilsServiceProvider" --tag="lang"
-```
-
-## Configuration
-
-The defaults are set in `config/utils.php`. Copy this file to your own config directory to modify the values. You can publish the config using this command:
-
-```bash
-php artisan vendor:publish --provider="Datalogix\Utils\UtilsServiceProvider" --tag="config"
-```
-
-This is the contents of the published file:
-
-```php
-
-/*
-|--------------------------------------------------------------------------
-| Laravel Utils
-|--------------------------------------------------------------------------
-*/
-
-return [
-    'model' => [
-        'unguard' => env('UTILS_MODEL_UNGUARD', false),
-    ],
-
-    'locale' => [
-        'category' => env('UTILS_LOCALE_CATEGORY', LC_ALL),
-    ],
-
-    'schema' => [
-        'defaultStringLength' => env('UTILS_SCHEMA_STRING_LENGTH', 150),
-    ],
-
-    'https' => [
-        'forceScheme' => env('UTILS_HTTPS_FORCE_SCHEME', app()->environment('production')),
-        'middleware' => env('UTILS_HTTPS_MIDDLEWARE', app()->environment('production')),
-    ],
-
-    'paginator' => [
-        'defaultView' => env('UTILS_PAGINATOR_VIEW', 'pagination::tailwind'),
-        'defaultSimpleView' => env('UTILS_PAGINATOR_SIMPLE_VIEW', 'pagination::simple-tailwind'),
-    ],
-];
 ```
