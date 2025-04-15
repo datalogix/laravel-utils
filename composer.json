@@ -1,16 +1,7 @@
 {
     "name": "datalogix/laravel-utils",
-    "description": "Laravel Utils is a package that configure simple things, which we usually forget about in our projects.",
-    "keywords": [
-        "laravel",
-        "utils",
-        "translations",
-        "model",
-        "locale",
-        "schema",
-        "https",
-        "paginator"
-    ],
+    "description": "A Laravel package that provides a set of useful utilities and service providers to enhance your application.",
+    "keywords": ["laravel", "utils", "laravel-utils"],
     "homepage": "https://github.com/datalogix/laravel-utils",
     "license": "MIT",
     "type": "library",
@@ -21,17 +12,15 @@
         }
     ],
     "require": {
-        "php": "^7.4|^8.0",
-        "datalogix/laravel-translation": "^1.1|^2.0",
-        "datalogix/laravel-validation": "^1.3|^2.0",
-        "illuminate/contracts": "^8.0|^9.0|^10.0|^11.0|^12.0",
-        "illuminate/database": "^8.0|^9.0|^10.0|^11.0|^12.0",
-        "illuminate/pagination": "^8.0|^9.0|^10.0|^11.0|^12.0",
-        "illuminate/support": "^8.0|^9.0|^10.0|^11.0|^12.0"
+        "php": "^8.2",
+        "datalogix/laravel-builder-macros": "^4.0",
+        "datalogix/laravel-sensible": "^1.0",
+        "datalogix/laravel-validation": "^3.0",
+        "illuminate/support": "^11.39|^12.0"
     },
     "require-dev": {
         "graham-campbell/testbench": "^6.2",
-        "phpunit/phpunit": "^9.5|^10.5"
+        "phpunit/phpunit": "^10.5|^11.0"
     },
     "autoload": {
         "psr-4": {

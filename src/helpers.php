@@ -3,10 +3,8 @@
 if (! function_exists('statesBR')) {
     /**
      * Brazilian states.
-     *
-     * @return array
      */
-    function statesBR()
+    function statesBR(): array
     {
         return [
             'AC' => 'Acre',
