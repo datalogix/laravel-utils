@@ -20,15 +20,16 @@
     },
     "require-dev": {
         "graham-campbell/testbench": "^6.2",
+        "laravel/pint": "^1.24",
         "phpunit/phpunit": "^10.5|^11.0"
     },
     "autoload": {
+         "files": [
+            "src/helpers.php"
+        ],
         "psr-4": {
             "Datalogix\\Utils\\": "src/"
-        },
-        "files": [
-            "src/helpers.php"
-        ]
+        }
     },
     "autoload-dev": {
         "psr-4": {
@@ -36,6 +37,7 @@
         }
     },
     "scripts": {
+        "lint": "vendor/bin/pint",
         "test": "vendor/bin/phpunit"
     },
     "extra": {
