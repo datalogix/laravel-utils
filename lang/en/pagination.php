@@ -13,7 +13,9 @@ return [
     |
     */
 
+    'first' => '&laquo; First',
     'previous' => '&laquo; Previous',
     'next' => 'Next &raquo;',
-
+    'last' => 'Last &raquo;',
+    'results' => '{0,1}result|results',
 ];
