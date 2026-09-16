@@ -23,20 +23,23 @@ The package will automatically register itself.
 
 These features work out of the box—no additional configuration required:
 
--   🌍 **Multi-language Support**
-    Includes built-in translations for English (`en`) and Brazilian Portuguese (`pt_BR`). Files are auto-loaded and can be published for customization.
+- 🌍 **Multi-language Support**
+  Includes built-in translations for English (`en`) and Brazilian Portuguese (`pt_BR`). Files are auto-loaded and can be published for customization.
 
--   ✔️ **Respect Validation Integration**
-    Automatically integrates [Respect Validation](https://respect-validation.readthedocs.io) via [datalogix/laravel-validation](https://github.com/datalogix/laravel-validation), with zero setup required.
+- ✔️ **Respect Validation Integration**
+  Automatically integrates [Respect Validation](https://respect-validation.readthedocs.io) via [datalogix/laravel-validation](https://github.com/datalogix/laravel-validation), with zero setup required.
 
--   🧠 **Enhanced Query Builder**
-    Adds useful, reusable macros to Laravel's query builder for cleaner and more expressive queries — powered by [datalogix/laravel-builder-macros](https://github.com/datalogix/laravel-builder-macros).
+- 🧠 **Enhanced Query Builder**
+  Adds useful, reusable macros to Laravel's query builder for cleaner and more expressive queries — powered by [datalogix/laravel-builder-macros](https://github.com/datalogix/laravel-builder-macros).
 
--   🧩 **Sensible Defaults for Laravel**
-    Applies opinionated, production-ready defaults to improve performance, security, and testability — powered by [datalogix/laravel-sensible](https://github.com/datalogix/laravel-sensible).
+- 🧩 **Sensible Defaults for Laravel**
+  Applies opinionated, production-ready defaults to improve performance, security, and testability — powered by [datalogix/laravel-sensible](https://github.com/datalogix/laravel-sensible).
 
--   🛠️ **Console Support**
-    Translation files can be published using Artisan when running in the console environment.
+- 🚨 **Custom Error Pages**
+  Provides ready-to-use, customizable error pages for your application — powered by [datalogix/laravel-error-pages](https://github.com/datalogix/laravel-error-pages).
+
+- 🛠️ **Console Support**
+  Translation files can be published using Artisan when running in the console environment.
 
 ## Translations
 

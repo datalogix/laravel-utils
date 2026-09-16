@@ -3,6 +3,7 @@
 namespace Datalogix\Utils;
 
 use Datalogix\BuilderMacros\BuilderMacroServiceProvider;
+use Datalogix\ErrorPages\ErrorPagesServiceProvider;
 use Datalogix\Sensible\SensibleServiceProvider;
 use Datalogix\Validation\ValidationServiceProvider;
 use Illuminate\Support\ServiceProvider;
@@ -15,6 +16,7 @@ class UtilsServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->register(BuilderMacroServiceProvider::class);
+        $this->app->register(ErrorPagesServiceProvider::class);
         $this->app->register(SensibleServiceProvider::class);
         $this->app->register(ValidationServiceProvider::class);
     }
