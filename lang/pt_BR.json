@@ -1,4 +1,9 @@
 {
+    "Items per page": "Itens por página",
+    "Ignore": "Ignorar",
+    "Format": "Formato",
+    "or": "ou",
+    "Digit :n of :total": "Dígito :n de :total",
     "Do you really want to proceed with this action?": "Você realmente deseja prosseguir com esta ação?",
     "Do you really want to delete this record?": "Você realmente deseja deletar este registro?",
     "This action is permanent and cannot be undone. All related data will be lost.": "Esta ação é permanente e não pode ser desfeita. Todos os dados relacionados serão perdidos.",
@@ -148,6 +153,7 @@
     "Update your account's profile information and email address.": "Atualize as informações do perfil da sua conta e o endereço de e-mail.",
     "Log Out Other Browser Sessions": "Sair de outras sessões do navegador",
     "Log Out": "Sair",
+    "Log out": "Sair",
     "Manage Account": "Gerenciar conta",
     "Do you really want to delete?": "Tem certeza de que deseja excluir?",
     "Do you really want to remove this image?": "Tem certeza de que deseja remover esta imagem?",
