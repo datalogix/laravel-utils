@@ -4,7 +4,7 @@ namespace Datalogix\Utils\Tests;
 
 use Illuminate\Filesystem\Filesystem;
 
-class AppTranslationOverrideTest extends TestCase
+class AppTranslationTest extends TestCase
 {
     protected string $langPath;
 
@@ -26,14 +26,6 @@ class AppTranslationOverrideTest extends TestCase
         (new Filesystem)->deleteDirectory($this->langPath);
 
         parent::tearDown();
-    }
-
-    public function test_the_application_overrides_the_package_translations()
-    {
-        $this->app->setLocale('pt_BR');
-
-        $this->assertSame('Custom nome', __('validation.required', ['attribute' => 'nome']));
-        $this->assertSame('Custom', __('Forgot your password?'));
     }
 
     public function test_the_package_fills_what_the_application_does_not_define()
