@@ -13,11 +13,11 @@
     ],
     "require": {
         "php": "^8.2",
-        "datalogix/laravel-builder-macros": "^4.1",
-        "datalogix/laravel-error-pages": "^1.0",
-        "datalogix/laravel-sensible": "^1.2",
-        "datalogix/laravel-validation": "^3.1",
-        "illuminate/support": "^11.0|^12.0|^13.0"
+        "datalogix/laravel-builder-macros": "^5.1",
+        "datalogix/laravel-error-pages": "^2.0",
+        "datalogix/laravel-sensible": "^2.0",
+        "datalogix/laravel-validation": "^4.0.1",
+        "illuminate/support": "^12.0|^13.0"
     },
     "require-dev": {
         "graham-campbell/testbench": "^6.3",
