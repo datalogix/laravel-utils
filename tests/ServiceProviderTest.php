@@ -7,12 +7,19 @@ use Datalogix\ErrorPages\ErrorPagesServiceProvider;
 use Datalogix\Sensible\SensibleServiceProvider;
 use Datalogix\Utils\UtilsServiceProvider;
 use Datalogix\Validation\ValidationServiceProvider;
-use GrahamCampbell\TestBenchCore\ServiceProviderTrait;
 use Illuminate\Support\ServiceProvider;
 
 class ServiceProviderTest extends TestCase
 {
-    use ServiceProviderTrait;
+    public function test_is_a_service_provider()
+    {
+        $this->assertInstanceOf(ServiceProvider::class, $this->app->getProvider(UtilsServiceProvider::class));
+    }
+
+    public function test_provides_a_list_of_services()
+    {
+        $this->assertIsArray((new UtilsServiceProvider($this->app))->provides());
+    }
 
     public function test_registers_the_bundled_providers()
     {
