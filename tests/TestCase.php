@@ -3,12 +3,12 @@
 namespace Datalogix\Utils\Tests;
 
 use Datalogix\Utils\UtilsServiceProvider;
-use GrahamCampbell\TestBench\AbstractPackageTestCase;
+use Orchestra\Testbench\TestCase as Orchestra;
 
-abstract class TestCase extends AbstractPackageTestCase
+abstract class TestCase extends Orchestra
 {
-    protected static function getServiceProviderClass(): string
+    protected function getPackageProviders($app): array
     {
-        return UtilsServiceProvider::class;
+        return [UtilsServiceProvider::class];
     }
 }
