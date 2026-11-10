@@ -31,4 +31,6 @@ Behavior from those packages belongs in their own repositories, not here. This p
 - Pest on top of Orchestra Testbench. There is no `tests/Pest.php`: each test file binds its base class with `uses(TestCase::class)`. `tests/TestCase.php` registers `UtilsServiceProvider`; tests that need a custom app setup use their own subclass overriding `getEnvironmentSetUp($app)`, like `tests/AppTranslationTestCase.php`.
 - `LangTest` runs without Testbench. For every locale in `LOCALES` it requires the same PHP files, keys (including JSON keys) and placeholders as `en`; it also requires the `attributes` in each `validation.php` to match that locale's JSON glossary, and the `en` PHP files to contain the framework's stock lines unchanged. When you add or rename a translation key, update `en` and every locale together. When you add a locale, add it to `LOCALES`.
 
+## Conventions
+
 - Issues and pull requests: English
