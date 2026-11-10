@@ -8,6 +8,8 @@ const BASE = 'en';
 
 const LOCALES = ['pt_BR'];
 
+const FRAMEWORK = __DIR__.'/../vendor/laravel/framework/src/Illuminate/Translation/lang/en';
+
 test('json files have the same keys', function (string $locale) {
     assertSameKeys(json(BASE), json($locale));
 })->with(LOCALES);
@@ -47,12 +49,12 @@ test('validation attributes match the json glossary', function (string $locale) 
     expect(array_intersect_key($attributes, $json))->toBe(array_intersect_key($json, $attributes));
 })->with([BASE, ...LOCALES]);
 
-test('validation messages cover every rule of the framework', function () {
-    $framework = Arr::dot(Arr::except(require __DIR__.'/../vendor/laravel/framework/src/Illuminate/Translation/lang/en/validation.php', ['custom', 'attributes']));
-    $package = Arr::dot(require path(BASE).'/validation.php');
+test('php files match the framework', function (string $file) {
+    $framework = Arr::dot(Arr::except(require FRAMEWORK.'/'.$file, ['custom', 'attributes']));
+    $package = Arr::dot(require path(BASE).'/'.$file);
 
-    expect(array_values(array_diff(array_keys($framework), array_keys($package))))->toBe([]);
-});
+    expect(array_intersect_key($package, $framework))->toEqual($framework, "Keys missing or different in {$file}.");
+})->with(array_map('basename', glob(FRAMEWORK.'/*.php')));
 
 function assertSameKeys(array $base, array $locale, string $file = 'json'): void
 {
