@@ -1,63 +1,88 @@
 <?php
 
-namespace Datalogix\Utils\Tests;
+namespace Datalogix\Utils\Tests\Lang;
 
 use Illuminate\Support\Arr;
-use PHPUnit\Framework\Attributes\DataProvider;
-use PHPUnit\Framework\TestCase;
 
-class LangTest extends TestCase
-{
-    protected const BASE = 'en';
+const BASE = 'en';
 
-    protected const LOCALES = ['pt_BR'];
+const LOCALES = ['pt_BR'];
 
-    public static function locales(): array
-    {
-        return array_combine(static::LOCALES, array_map(fn ($locale) => [$locale], static::LOCALES));
+const FRAMEWORK = __DIR__.'/../vendor/laravel/framework/src/Illuminate/Translation/lang/en';
+
+test('json files have the same keys', function (string $locale) {
+    assertSameKeys(json(BASE), json($locale));
+})->with(LOCALES);
+
+test('php files have the same keys', function (string $locale) {
+    $files = array_map('basename', glob(path(BASE).'/*.php'));
+
+    expect(array_map('basename', glob(path($locale).'/*.php')))->toBe($files);
+
+    foreach ($files as $file) {
+        assertSameKeys(require path(BASE).'/'.$file, require path($locale).'/'.$file, $file);
     }
+})->with(LOCALES);
 
-    #[DataProvider('locales')]
-    public function test_json_files_have_the_same_keys(string $locale)
-    {
-        $this->assertSameKeys(
-            $this->json(static::BASE),
-            $this->json($locale),
-        );
+test('json files have the same placeholders', function (string $locale) {
+    $translations = json($locale);
+
+    foreach (array_keys(json(BASE)) as $key) {
+        expect($translations)->toHaveKey($key);
+        expect(placeholders($translations[$key]))->toBe(placeholders($key), "Placeholders differ in [{$key}].");
     }
+})->with(LOCALES);
 
-    #[DataProvider('locales')]
-    public function test_php_files_have_the_same_keys(string $locale)
-    {
-        $files = array_map('basename', glob($this->path(static::BASE).'/*.php'));
+test('php files have the same placeholders', function (string $locale) {
+    foreach (array_map('basename', glob(path(BASE).'/*.php')) as $file) {
+        $translations = Arr::dot(require path($locale).'/'.$file);
 
-        $this->assertSame($files, array_map('basename', glob($this->path($locale).'/*.php')));
-
-        foreach ($files as $file) {
-            $this->assertSameKeys(
-                require $this->path(static::BASE).'/'.$file,
-                require $this->path($locale).'/'.$file,
-                $file,
-            );
+        foreach (Arr::dot(require path(BASE).'/'.$file) as $key => $line) {
+            expect($translations)->toHaveKey($key);
+            expect(placeholders($translations[$key]))->toBe(placeholders($line), "Placeholders differ in [{$file}: {$key}].");
         }
     }
+})->with(LOCALES);
 
-    protected function assertSameKeys(array $base, array $locale, string $file = 'json'): void
-    {
-        $base = array_keys(Arr::dot($base));
-        $locale = array_keys(Arr::dot($locale));
+test('validation attributes match the json glossary', function (string $locale) {
+    $json = json($locale);
+    $attributes = (require path($locale).'/validation.php')['attributes'];
 
-        $this->assertSame([], array_values(array_diff($base, $locale)), "Keys missing in {$file}.");
-        $this->assertSame([], array_values(array_diff($locale, $base)), "Extra keys in {$file}.");
-    }
+    expect(array_intersect_key($attributes, $json))->toBe(array_intersect_key($json, $attributes));
+})->with([BASE, ...LOCALES]);
 
-    protected function json(string $locale): array
-    {
-        return json_decode(file_get_contents($this->path($locale).'.json'), true, flags: JSON_THROW_ON_ERROR);
-    }
+test('php files match the framework', function (string $file) {
+    $framework = Arr::dot(Arr::except(require FRAMEWORK.'/'.$file, ['custom', 'attributes']));
+    $package = Arr::dot(require path(BASE).'/'.$file);
 
-    protected function path(string $locale): string
-    {
-        return __DIR__.'/../lang/'.$locale;
-    }
+    expect(array_intersect_key($package, $framework))->toEqual($framework, "Keys missing or different in {$file}.");
+})->with(array_map('basename', glob(FRAMEWORK.'/*.php')));
+
+function assertSameKeys(array $base, array $locale, string $file = 'json'): void
+{
+    $base = array_keys(Arr::dot($base));
+    $locale = array_keys(Arr::dot($locale));
+
+    expect(array_values(array_diff($base, $locale)))->toBe([], "Keys missing in {$file}.");
+    expect(array_values(array_diff($locale, $base)))->toBe([], "Extra keys in {$file}.");
+}
+
+function json(string $locale): array
+{
+    return json_decode(file_get_contents(path($locale).'.json'), true, flags: JSON_THROW_ON_ERROR);
+}
+
+function path(string $locale): string
+{
+    return __DIR__.'/../lang/'.$locale;
+}
+
+function placeholders(string $line): array
+{
+    preg_match_all('/:[A-Za-z][\w-]*/', $line, $matches);
+
+    $placeholders = array_map('strtolower', $matches[0]);
+    sort($placeholders);
+
+    return $placeholders;
 }

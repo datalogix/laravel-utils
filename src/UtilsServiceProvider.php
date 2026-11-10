@@ -27,9 +27,15 @@ class UtilsServiceProvider extends ServiceProvider
     public function boot(): void
     {
         if ($this->app->runningInConsole()) {
-            $this->publishes([__DIR__.'/../lang' => lang_path()], 'lang');
+            // The "lang" tag is deprecated and will be removed in the next major version.
+            $this->publishes([__DIR__.'/../lang' => lang_path()], ['laravel-utils-lang', 'lang']);
         }
 
-        $this->callAfterResolving('translator', fn ($translator) => $translator->addPath(__DIR__.'/../lang'));
+        $this->callAfterResolving('translator', function ($translator) {
+            $translator->addPath(__DIR__.'/../lang');
+
+            // The last path wins, so the application's path is added again to keep precedence over the package.
+            $translator->addPath($this->app->langPath());
+        });
     }
 }

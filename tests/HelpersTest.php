@@ -1,19 +1,43 @@
 <?php
 
-namespace Datalogix\Utils\Tests;
+use Datalogix\Utils\Tests\TestCase;
 
-class HelpersTest extends TestCase
-{
-    public function test_helpers_file_is_loadable_multiple_times()
-    {
-        require __DIR__.'/../src/helpers.php';
+uses(TestCase::class);
 
-        $this->assertTrue(function_exists('statesBR'));
-    }
+test('helpers file is loadable multiple times', function () {
+    require __DIR__.'/../src/helpers.php';
 
-    public function test_states_br()
-    {
-        $this->assertIsArray(statesBR());
-        $this->assertArrayHasKey('SP', statesBR());
-    }
-}
+    expect(function_exists('statesBR'))->toBeTrue();
+});
+
+test('states br', function () {
+    expect(statesBR())->toBe([
+        'AC' => 'Acre',
+        'AL' => 'Alagoas',
+        'AP' => 'Amapá',
+        'AM' => 'Amazonas',
+        'BA' => 'Bahia',
+        'CE' => 'Ceará',
+        'DF' => 'Distrito Federal',
+        'ES' => 'Espírito Santo',
+        'GO' => 'Goiás',
+        'MA' => 'Maranhão',
+        'MT' => 'Mato Grosso',
+        'MS' => 'Mato Grosso do Sul',
+        'MG' => 'Minas Gerais',
+        'PA' => 'Pará',
+        'PB' => 'Paraíba',
+        'PR' => 'Paraná',
+        'PE' => 'Pernambuco',
+        'PI' => 'Piauí',
+        'RJ' => 'Rio de Janeiro',
+        'RN' => 'Rio Grande do Norte',
+        'RS' => 'Rio Grande do Sul',
+        'RO' => 'Rondônia',
+        'RR' => 'Roraima',
+        'SC' => 'Santa Catarina',
+        'SP' => 'São Paulo',
+        'SE' => 'Sergipe',
+        'TO' => 'Tocantins',
+    ]);
+});

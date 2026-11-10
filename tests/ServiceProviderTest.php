@@ -1,43 +1,37 @@
 <?php
 
-namespace Datalogix\Utils\Tests;
-
 use Datalogix\BuilderMacros\BuilderMacroServiceProvider;
 use Datalogix\ErrorPages\ErrorPagesServiceProvider;
 use Datalogix\Sensible\SensibleServiceProvider;
+use Datalogix\Utils\Tests\TestCase;
 use Datalogix\Utils\UtilsServiceProvider;
 use Datalogix\Validation\ValidationServiceProvider;
 use Illuminate\Support\ServiceProvider;
 
-class ServiceProviderTest extends TestCase
-{
-    public function test_is_a_service_provider()
-    {
-        $this->assertInstanceOf(ServiceProvider::class, $this->app->getProvider(UtilsServiceProvider::class));
-    }
+uses(TestCase::class);
 
-    public function test_provides_a_list_of_services()
-    {
-        $this->assertIsArray((new UtilsServiceProvider($this->app))->provides());
-    }
+test('is a service provider', function () {
+    expect($this->app->getProvider(UtilsServiceProvider::class))->toBeInstanceOf(ServiceProvider::class);
+});
 
-    public function test_registers_the_bundled_providers()
-    {
-        foreach ([
-            BuilderMacroServiceProvider::class,
-            ErrorPagesServiceProvider::class,
-            SensibleServiceProvider::class,
-            ValidationServiceProvider::class,
-        ] as $provider) {
-            $this->assertNotNull($this->app->getProvider($provider), "{$provider} is not registered.");
-        }
-    }
+test('provides a list of services', function () {
+    expect((new UtilsServiceProvider($this->app))->provides())->toBe([]);
+});
 
-    public function test_publishes_the_lang_files()
-    {
-        $paths = ServiceProvider::pathsToPublish(UtilsServiceProvider::class, 'lang');
-
-        $this->assertSame([realpath(__DIR__.'/../lang')], array_map('realpath', array_keys($paths)));
-        $this->assertSame([lang_path()], array_values($paths));
+test('registers the bundled providers', function () {
+    foreach ([
+        BuilderMacroServiceProvider::class,
+        ErrorPagesServiceProvider::class,
+        SensibleServiceProvider::class,
+        ValidationServiceProvider::class,
+    ] as $provider) {
+        expect($this->app->getProvider($provider))->not->toBeNull("{$provider} is not registered.");
     }
-}
+});
+
+test('publishes the lang files', function (string $tag) {
+    $paths = ServiceProvider::pathsToPublish(UtilsServiceProvider::class, $tag);
+
+    expect(array_map('realpath', array_keys($paths)))->toBe([realpath(__DIR__.'/../lang')]);
+    expect(array_values($paths))->toBe([lang_path()]);
+})->with(['laravel-utils-lang', 'lang']);
