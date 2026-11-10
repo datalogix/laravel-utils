@@ -28,6 +28,7 @@ test('json files have the same placeholders', function (string $locale) {
     $translations = json($locale);
 
     foreach (array_keys(json(BASE)) as $key) {
+        expect($translations)->toHaveKey($key);
         expect(placeholders($translations[$key]))->toBe(placeholders($key), "Placeholders differ in [{$key}].");
     }
 })->with(LOCALES);
@@ -37,6 +38,7 @@ test('php files have the same placeholders', function (string $locale) {
         $translations = Arr::dot(require path($locale).'/'.$file);
 
         foreach (Arr::dot(require path(BASE).'/'.$file) as $key => $line) {
+            expect($translations)->toHaveKey($key);
             expect(placeholders($translations[$key]))->toBe(placeholders($line), "Placeholders differ in [{$file}: {$key}].");
         }
     }
@@ -79,7 +81,7 @@ function placeholders(string $line): array
 {
     preg_match_all('/:[A-Za-z][\w-]*/', $line, $matches);
 
-    $placeholders = $matches[0];
+    $placeholders = array_map('strtolower', $matches[0]);
     sort($placeholders);
 
     return $placeholders;
