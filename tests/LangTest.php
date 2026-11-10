@@ -22,6 +22,14 @@ test('php files have the same keys', function (string $locale) {
     }
 })->with(LOCALES);
 
+test('json files have the same placeholders', function (string $locale) {
+    $translations = json($locale);
+
+    foreach (array_keys(json(BASE)) as $key) {
+        expect(placeholders($translations[$key]))->toBe(placeholders($key), "Placeholders differ in [{$key}].");
+    }
+})->with(LOCALES);
+
 function assertSameKeys(array $base, array $locale, string $file = 'json'): void
 {
     $base = array_keys(Arr::dot($base));
@@ -39,4 +47,14 @@ function json(string $locale): array
 function path(string $locale): string
 {
     return __DIR__.'/../lang/'.$locale;
+}
+
+function placeholders(string $line): array
+{
+    preg_match_all('/:[A-Za-z][\w-]*/', $line, $matches);
+
+    $placeholders = $matches[0];
+    sort($placeholders);
+
+    return $placeholders;
 }
