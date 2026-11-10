@@ -20,6 +20,7 @@
         "illuminate/support": "^12.0|^13.0"
     },
     "require-dev": {
+        "larastan/larastan": "^3.14",
         "laravel/pint": "^1.30",
         "orchestra/testbench": "^10.0|^11.0",
         "pestphp/pest": "^3.8|^4.7|^5.3",
@@ -39,8 +40,12 @@
         }
     },
     "scripts": {
-        "lint": "vendor/bin/pint",
-        "test": "@php vendor/bin/pest"
+        "test": "@php vendor/bin/pest",
+        "lint": [
+            "@php vendor/bin/pint --test",
+            "@php vendor/bin/phpstan analyse"
+        ],
+        "format": "@php vendor/bin/pint"
     },
     "extra": {
         "laravel": {
