@@ -30,12 +30,29 @@ test('json files have the same placeholders', function (string $locale) {
     }
 })->with(LOCALES);
 
+test('php files have the same placeholders', function (string $locale) {
+    foreach (array_map('basename', glob(path(BASE).'/*.php')) as $file) {
+        $translations = Arr::dot(require path($locale).'/'.$file);
+
+        foreach (Arr::dot(require path(BASE).'/'.$file) as $key => $line) {
+            expect(placeholders($translations[$key]))->toBe(placeholders($line), "Placeholders differ in [{$file}: {$key}].");
+        }
+    }
+})->with(LOCALES);
+
 test('validation attributes match the json glossary', function (string $locale) {
     $json = json($locale);
     $attributes = (require path($locale).'/validation.php')['attributes'];
 
     expect(array_intersect_key($attributes, $json))->toBe(array_intersect_key($json, $attributes));
 })->with([BASE, ...LOCALES]);
+
+test('validation messages cover every rule of the framework', function () {
+    $framework = Arr::dot(Arr::except(require __DIR__.'/../vendor/laravel/framework/src/Illuminate/Translation/lang/en/validation.php', ['custom', 'attributes']));
+    $package = Arr::dot(require path(BASE).'/validation.php');
+
+    expect(array_values(array_diff(array_keys($framework), array_keys($package))))->toBe([]);
+});
 
 function assertSameKeys(array $base, array $locale, string $file = 'json'): void
 {
