@@ -47,7 +47,7 @@ To customize the translations, publish them:
 php artisan vendor:publish --tag="laravel-utils-lang"
 ```
 
-This copies the package's whole `lang` folder into your application's `lang/` folder. Published keys take precedence over the package and no longer receive its updates; keys added to the package later are still loaded from it.
+This copies the package's whole `lang` folder into your application's `lang/` folder. Published keys take precedence over the package and no longer receive its updates; keys added to the package later are still loaded from it. Existing files are not overwritten; use `--force` to replace them (this discards your edits).
 
 > [!NOTE]
 > The `lang` tag still works but is deprecated and will be removed in the next major version. Use `laravel-utils-lang` instead.
