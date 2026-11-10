@@ -65,7 +65,7 @@ return [
         'array' => 'O campo :attribute deve ter mais de :value itens.',
         'file' => 'O campo :attribute deve ser maior que :value kilobytes.',
         'numeric' => 'O campo :attribute deve ser maior que :value.',
-        'string' => 'O campo :attribute deve ser maior que :value caracteres.',
+        'string' => 'O campo :attribute deve ter mais de :value caracteres.',
     ],
     'gte' => [
         'array' => 'O campo :attribute deve ter :value itens ou mais.',
@@ -89,7 +89,7 @@ return [
         'array' => 'O campo :attribute deve ter menos de :value itens.',
         'file' => 'O campo :attribute deve ser menor que :value kilobytes.',
         'numeric' => 'O campo :attribute deve ser menor que :value.',
-        'string' => 'O campo :attribute deve ser menor que :value caracteres.',
+        'string' => 'O campo :attribute deve ter menos de :value caracteres.',
     ],
     'lte' => [
         'array' => 'O campo :attribute não deve ter mais que :value itens.',
@@ -128,7 +128,7 @@ return [
         'mixed' => 'O campo :attribute deve conter pelo menos uma letra maiúscula e uma minúscula.',
         'numbers' => 'O campo :attribute deve conter pelo menos um número.',
         'symbols' => 'O campo :attribute deve conter pelo menos um símbolo.',
-        'uncompromised' => 'O dado :attribute apareceu em um vazamento de dados. Por favor, escolha um :attribute diferente.',
+        'uncompromised' => 'O valor informado em :attribute apareceu em um vazamento de dados. Por favor, escolha outro valor para :attribute.',
     ],
     'present' => 'O campo :attribute deve estar presente.',
     'present_if' => 'O campo :attribute deve estar presente quando :other for :value.',

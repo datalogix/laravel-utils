@@ -143,7 +143,7 @@
     "The :attribute must contain at least one letter.": "O campo :attribute deve conter pelo menos uma letra.",
     "The :attribute must contain at least one symbol.": "O campo :attribute deve conter pelo menos um símbolo.",
     "The :attribute must contain at least one number.": "O campo :attribute deve conter pelo menos um número.",
-    "The given :attribute has appeared in a data leak. Please choose a different :attribute.": "O dado :attribute apareceu em um vazamento de dados. Por favor, escolha um :attribute diferente.",
+    "The given :attribute has appeared in a data leak. Please choose a different :attribute.": "O valor informado em :attribute apareceu em um vazamento de dados. Por favor, escolha outro valor para :attribute.",
     "Delete Account": "Deletar conta",
     "Are you sure you want to delete your account? Once your account is deleted, all of its resources and data will be permanently deleted. Please enter your password to confirm you would like to permanently delete your account.": "Você tem certeza que quer deletar essa conta? Uma vez que sua conta é deletada, todos os dados serão permanentemente deletados. Por favor, entre com a sua senha para confirmar que você quer deletar permanentemente sua conta.",
     "Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.": "Depois que sua conta for excluída, todos os seus recursos e dados serão excluídos permanentemente. Antes de excluir sua conta, baixe todos os dados ou informações que deseja reter.",
