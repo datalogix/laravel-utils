@@ -13,9 +13,9 @@ return [
     |
     */
 
-    'first' => '&laquo; Primeira',
+    'first' => '&laquo; Primeiro',
     'previous' => '&laquo; Anterior',
     'next' => 'Próximo &raquo;',
-    'last' => 'Última &raquo;',
+    'last' => 'Último &raquo;',
     'results' => '{0,1}resultado|resultados',
 ];
