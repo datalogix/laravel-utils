@@ -1,19 +1,15 @@
 <?php
 
-namespace Datalogix\Utils\Tests;
+use Datalogix\Utils\Tests\TestCase;
 
-class HelpersTest extends TestCase
-{
-    public function test_helpers_file_is_loadable_multiple_times()
-    {
-        require __DIR__.'/../src/helpers.php';
+uses(TestCase::class);
 
-        $this->assertTrue(function_exists('statesBR'));
-    }
+test('helpers file is loadable multiple times', function () {
+    require __DIR__.'/../src/helpers.php';
 
-    public function test_states_br()
-    {
-        $this->assertIsArray(statesBR());
-        $this->assertArrayHasKey('SP', statesBR());
-    }
-}
+    expect(function_exists('statesBR'))->toBeTrue();
+});
+
+test('states br', function () {
+    expect(statesBR())->toHaveKey('SP');
+});

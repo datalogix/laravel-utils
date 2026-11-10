@@ -1,41 +1,35 @@
 <?php
 
-namespace Datalogix\Utils\Tests;
-
+use Datalogix\Utils\Tests\TestCase;
 use Illuminate\Support\Facades\Validator;
 
-class TranslationTest extends TestCase
-{
-    public function test_loads_the_php_translations()
-    {
-        $this->app->setLocale('pt_BR');
+uses(TestCase::class);
 
-        $this->assertSame('O campo nome é obrigatório.', __('validation.required', ['attribute' => 'nome']));
-        $this->assertSame('&laquo; Anterior', __('pagination.previous'));
-    }
+test('loads the php translations', function () {
+    $this->app->setLocale('pt_BR');
 
-    public function test_loads_the_json_translations()
-    {
-        $this->app->setLocale('pt_BR');
+    expect(__('validation.required', ['attribute' => 'nome']))->toBe('O campo nome é obrigatório.');
+    expect(__('pagination.previous'))->toBe('&laquo; Anterior');
+});
 
-        $this->assertSame('Esqueceu sua senha?', __('Forgot your password?'));
-    }
+test('loads the json translations', function () {
+    $this->app->setLocale('pt_BR');
 
-    public function test_translates_the_validation_attributes()
-    {
-        $this->app->setLocale('pt_BR');
+    expect(__('Forgot your password?'))->toBe('Esqueceu sua senha?');
+});
 
-        $validator = Validator::make([], ['first_name' => 'required']);
+test('translates the validation attributes', function () {
+    $this->app->setLocale('pt_BR');
 
-        $this->assertSame('O campo Primeiro nome é obrigatório.', $validator->errors()->first('first_name'));
-    }
+    $validator = Validator::make([], ['first_name' => 'required']);
 
-    public function test_keeps_the_respect_validation_translations()
-    {
-        $this->app->setLocale('pt_BR');
+    expect($validator->errors()->first('first_name'))->toBe('O campo Primeiro nome é obrigatório.');
+});
 
-        $validator = Validator::make(['cpf' => '111'], ['cpf' => 'cpf']);
+test('keeps the respect validation translations', function () {
+    $this->app->setLocale('pt_BR');
 
-        $this->assertSame('O campo CPF deve ser um CPF válido.', $validator->errors()->first('cpf'));
-    }
-}
+    $validator = Validator::make(['cpf' => '111'], ['cpf' => 'cpf']);
+
+    expect($validator->errors()->first('cpf'))->toBe('O campo CPF deve ser um CPF válido.');
+});
