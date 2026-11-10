@@ -30,6 +30,13 @@ test('json files have the same placeholders', function (string $locale) {
     }
 })->with(LOCALES);
 
+test('validation attributes match the json glossary', function (string $locale) {
+    $json = json($locale);
+    $attributes = (require path($locale).'/validation.php')['attributes'];
+
+    expect(array_intersect_key($attributes, $json))->toBe(array_intersect_key($json, $attributes));
+})->with([BASE, ...LOCALES]);
+
 function assertSameKeys(array $base, array $locale, string $file = 'json'): void
 {
     $base = array_keys(Arr::dot($base));
