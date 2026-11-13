@@ -15,9 +15,9 @@ test('json files have the same keys', function (string $locale) {
 })->with(LOCALES);
 
 test('php files have the same keys', function (string $locale) {
-    $files = array_map('basename', glob(path(BASE).'/*.php'));
+    $files = array_map(basename(...), glob(path(BASE).'/*.php'));
 
-    expect(array_map('basename', glob(path($locale).'/*.php')))->toBe($files);
+    expect(array_map(basename(...), glob(path($locale).'/*.php')))->toBe($files);
 
     foreach ($files as $file) {
         assertSameKeys(require path(BASE).'/'.$file, require path($locale).'/'.$file, $file);
@@ -34,7 +34,7 @@ test('json files have the same placeholders', function (string $locale) {
 })->with(LOCALES);
 
 test('php files have the same placeholders', function (string $locale) {
-    foreach (array_map('basename', glob(path(BASE).'/*.php')) as $file) {
+    foreach (array_map(basename(...), glob(path(BASE).'/*.php')) as $file) {
         $translations = Arr::dot(require path($locale).'/'.$file);
 
         foreach (Arr::dot(require path(BASE).'/'.$file) as $key => $line) {
@@ -56,7 +56,7 @@ test('php files match the framework', function (string $file) {
     $package = Arr::dot(require path(BASE).'/'.$file);
 
     expect(array_intersect_key($package, $framework))->toEqual($framework, "Keys missing or different in {$file}.");
-})->with(array_map('basename', glob(FRAMEWORK.'/*.php')));
+})->with(array_map(basename(...), glob(FRAMEWORK.'/*.php')));
 
 function assertSameKeys(array $base, array $locale, string $file = 'json'): void
 {
@@ -81,7 +81,7 @@ function placeholders(string $line): array
 {
     preg_match_all('/:[A-Za-z][\w-]*/', $line, $matches);
 
-    $placeholders = array_map('strtolower', $matches[0]);
+    $placeholders = array_map(strtolower(...), $matches[0]);
     sort($placeholders);
 
     return $placeholders;
