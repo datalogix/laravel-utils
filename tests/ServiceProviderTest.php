@@ -32,6 +32,6 @@ test('registers the bundled providers', function () {
 test('publishes the lang files', function (string $tag) {
     $paths = ServiceProvider::pathsToPublish(UtilsServiceProvider::class, $tag);
 
-    expect(array_map('realpath', array_keys($paths)))->toBe([realpath(__DIR__.'/../lang')]);
+    expect(array_map(realpath(...), array_keys($paths)))->toBe([realpath(__DIR__.'/../lang')]);
     expect(array_values($paths))->toBe([lang_path()]);
 })->with(['laravel-utils-lang', 'lang']);

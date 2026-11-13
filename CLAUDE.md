@@ -6,8 +6,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 - `composer test` — run the Pest suite (Orchestra Testbench). Add `-- --no-coverage` to skip the clover/text coverage report configured in `phpunit.xml.dist`.
 - `composer test -- --filter "loads the json translations"` — run a single test by its description, or `composer test -- tests/TranslationTest.php` for one file.
-- `composer lint` — check only: Laravel Pint in `--test` mode (default preset, no `pint.json`) and PHPStan with Larastan at level 5 over `src/` (`phpstan.neon.dist`).
-- `composer format` — format with Laravel Pint.
+- `composer lint` — check only: Laravel Pint in `--test` mode (default preset, no `pint.json`), PHPStan with Larastan at level 5 over `src/` (`phpstan.neon.dist`) and Rector (`--dry-run`, `rector.php`).
+- `composer format` — apply Rector, then format with Laravel Pint.
 
 CI runs `.github/workflows/datalogix.yml`, which calls the shared `datalogix/workflows/.github/workflows/package.yml@v2` (coverage must stay at 100%). `composer.lock` is gitignored, so supported versions are defined only by the constraints in `composer.json` (PHP ^8.2, Laravel 12 and 13).
 
