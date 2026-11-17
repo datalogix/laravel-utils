@@ -9,7 +9,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `composer lint` — check only: Laravel Pint in `--test` mode (default preset, no `pint.json`), PHPStan with Larastan at level 5 over `src/` (`phpstan.neon.dist`) and Rector (`--dry-run`, `rector.php`).
 - `composer format` — apply Rector, then format with Laravel Pint.
 
-CI runs `.github/workflows/datalogix.yml`, which calls the shared `datalogix/workflows/.github/workflows/package.yml@v2` (coverage must stay at 100%). `composer.lock` is gitignored, so supported versions are defined only by the constraints in `composer.json` (PHP ^8.2, Laravel 12 and 13).
+CI runs `.github/workflows/datalogix.yml`, which calls the shared `datalogix/workflows/.github/workflows/package.yml@v2` (coverage must stay at 100%). `composer.lock` is versioned, but it only pins the versions used in development: supported versions are defined by the constraints in `composer.json` (PHP ^8.2, Laravel 12 and 13).
 
 ## Architecture
 
