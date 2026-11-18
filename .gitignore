@@ -12,8 +12,6 @@ Thumbs.db
 /.vscode/
 /.zed/
 
-/.env
-
 /.phpunit.cache/
 /.phpunit.result.cache
 
@@ -21,10 +19,11 @@ Thumbs.db
 /node_modules/
 
 /composer.phar
-
-/build/
 /clover.xml
+/build/
 /coverage/
+
+/.env
 
 /phpstan.neon
 /phpunit.xml
